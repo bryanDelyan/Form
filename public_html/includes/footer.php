@@ -1,7 +1,7 @@
 <footer class="footer">
 
     <section>
-        <div class="credit">&copy; copyright @ 2022 by <span>Technonautas</span> | all rights reserved!</div>
+        <div class="credit">&copy; copyright @ 2022-2023 by <span>FabLab</span> | all rights reserved!</div>
     </section>
 
 </footer>

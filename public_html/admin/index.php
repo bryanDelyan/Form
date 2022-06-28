@@ -3,8 +3,13 @@
 ?>
 <?php
 
-if (!$_SESSION['user'] == "admin") {
-    header("location: login.php");
+if (isset($_POST['buscar'])) {
+    if (isset($_POST['fecha'])) {
+        $fecha = $_POST['fecha'];
+        $peti = "SELECT * FROM registros WHERE fecha LIKE '%$fecha%'";
+    }
+}else {
+    $peti = "SELECT * FROM registros";
 }
 
 ?>
@@ -12,13 +17,57 @@ if (!$_SESSION['user'] == "admin") {
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 <br><br><br>
+
+<style>
+.contact{
+    height: 100%;
+}
+a {
+    text-decoration: none;
+}
+
+table {
+    min-height: 100px;
+    max-height: 200px
+}
+
+div.scrollmenu {
+    overflow: auto;
+    white-space: nowrap;
+    min-height: 100px;
+    max-height: 300px
+}
+
+input {
+    padding-top: 25px;
+    padding-bottom: 25px;
+    max-width: 150px;
+    min-width: 20px;
+    text-align: center;
+}
+
+.firma {
+    width: 200px;
+    height: 70px;
+    padding: 10px;
+}
+
+</style>
 <section class="contact" id="contact">
     <div class="row">
         <form method="POST">
             <div class="box" style="text-align: center;">
                 <h1>Datos de los usuarios</h1>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                    <form method="POST">
+                        <button class="btn btn-primary btn-lg me-md-2" name="buscar" type="sucess">Buscar en: </button>
+
+                        <input class="btn btn-light btn-lg" id="bday-month" type="month" name="fecha" value="2022-06">
+                    </form>
+
+                </div>
             </div>
-            
+
             <div class="scrollmenu">
                 <table class="table shadow text-center">
                     <thead>
@@ -43,8 +92,8 @@ if (!$_SESSION['user'] == "admin") {
                     </thead>
                     <tbody>
                         <tr>
-                            <td> <?php
-                        $query = "SELECT * FROM registros";
+                            <td class="di"> <?php
+                        $query =  $peti;
                         $result_task = mysqli_query($conn, $query);
                         while ($row = mysqli_fetch_array($result_task)) { ?>
                                 <div class="i">
@@ -53,7 +102,7 @@ if (!$_SESSION['user'] == "admin") {
                                 <?php } ?>
                             </td>
                             <td> <?php
-                        $query = "SELECT * FROM registros";
+                        $query =  $peti;
                         $result_task = mysqli_query($conn, $query);
                         while ($row = mysqli_fetch_array($result_task)) { ?>
                                 <div class="i">
@@ -62,7 +111,7 @@ if (!$_SESSION['user'] == "admin") {
                                 <?php } ?>
                             </td>
                             <td> <?php
-                        $query = "SELECT * FROM registros";
+                        $query =  $peti;
                         $result_task = mysqli_query($conn, $query);
                         while ($row = mysqli_fetch_array($result_task)) { ?>
                                 <div class="i">
@@ -71,7 +120,7 @@ if (!$_SESSION['user'] == "admin") {
                                 <?php } ?>
                             </td>
                             <td> <?php
-                        $query = "SELECT * FROM registros";
+                        $query =  $peti;
                         $result_task = mysqli_query($conn, $query);
                         while ($row = mysqli_fetch_array($result_task)) { ?>
                                 <div class="i">
@@ -80,7 +129,7 @@ if (!$_SESSION['user'] == "admin") {
                                 <?php } ?>
                             </td>
                             <td> <?php
-                        $query = "SELECT * FROM registros";
+                        $query =  $peti;
                         $result_task = mysqli_query($conn, $query);
                         while ($row = mysqli_fetch_array($result_task)) { ?>
                                 <div class="i">
@@ -90,7 +139,7 @@ if (!$_SESSION['user'] == "admin") {
                             </td>
 
                             <td> <?php
-                        $query = "SELECT * FROM registros";
+                        $query =  $peti;
                         $result_task = mysqli_query($conn, $query);
                         while ($row = mysqli_fetch_array($result_task)) { ?>
                                 <div class="i">
@@ -99,7 +148,7 @@ if (!$_SESSION['user'] == "admin") {
                                 <?php } ?>
                             </td>
                             <td> <?php
-                        $query = "SELECT * FROM registros";
+                        $query =  $peti;
                         $result_task = mysqli_query($conn, $query);
                         while ($row = mysqli_fetch_array($result_task)) { ?>
                                 <div class="i">
@@ -108,7 +157,7 @@ if (!$_SESSION['user'] == "admin") {
                                 <?php } ?>
                             </td>
                             <td> <?php
-                        $query = "SELECT * FROM registros";
+                        $query =  $peti;
                         $result_task = mysqli_query($conn, $query);
                         while ($row = mysqli_fetch_array($result_task)) { ?>
                                 <div class="i">
@@ -117,7 +166,7 @@ if (!$_SESSION['user'] == "admin") {
                                 <?php } ?>
                             </td>
                             <td> <?php
-                        $query = "SELECT * FROM registros";
+                        $query =  $peti;
                         $result_task = mysqli_query($conn, $query);
                         while ($row = mysqli_fetch_array($result_task)) { ?>
                                 <div class="i">
@@ -126,7 +175,7 @@ if (!$_SESSION['user'] == "admin") {
                                 <?php } ?>
                             </td>
                             <td> <?php
-                        $query = "SELECT * FROM registros";
+                         $query =  $peti;
                         $result_task = mysqli_query($conn, $query);
                         while ($row = mysqli_fetch_array($result_task)) { ?>
                                 <div class="i">
@@ -135,7 +184,7 @@ if (!$_SESSION['user'] == "admin") {
                                 <?php } ?>
                             </td>
                             <td> <?php
-                        $query = "SELECT * FROM registros";
+                          $query =  $peti;
                         $result_task = mysqli_query($conn, $query);
                         while ($row = mysqli_fetch_array($result_task)) { ?>
                                 <div class="i">
@@ -144,7 +193,7 @@ if (!$_SESSION['user'] == "admin") {
                                 <?php } ?>
                             </td>
                             <td> <?php
-                        $query = "SELECT * FROM registros";
+                          $query =  $peti;
                         $result_task = mysqli_query($conn, $query);
                         while ($row = mysqli_fetch_array($result_task)) { ?>
                                 <div class="i">
@@ -153,7 +202,7 @@ if (!$_SESSION['user'] == "admin") {
                                 <?php } ?>
                             </td>
                             <td> <?php
-                        $query = "SELECT * FROM registros";
+                           $query =  $peti;
                         $result_task = mysqli_query($conn, $query);
                         while ($row = mysqli_fetch_array($result_task)) { ?>
                                 <div class="i">
@@ -162,7 +211,7 @@ if (!$_SESSION['user'] == "admin") {
                                 <?php } ?>
                             </td>
                             <td> <?php
-                        $query = "SELECT * FROM registros";
+                           $query =  $peti;
                         $result_task = mysqli_query($conn, $query);
                         while ($row = mysqli_fetch_array($result_task)) { ?>
                                 <div class="i">
@@ -171,16 +220,18 @@ if (!$_SESSION['user'] == "admin") {
                                 <?php } ?>
                             </td>
                             <td> <?php
-                        $query = "SELECT * FROM registros";
+                           $query =  $peti;
                         $result_task = mysqli_query($conn, $query);
                         while ($row = mysqli_fetch_array($result_task)) { ?>
+
                                 <div class="i">
-                                    <input type="text" value="<?php echo $row['firma']?>" disabled>
+                                    <img src="../<?php echo $row['firma']?>" class="firma">
                                 </div>
+
                                 <?php } ?>
                             </td>
                             <td> <?php
-                        $query = "SELECT * FROM registros";
+                         $query =  $peti;
                         $result_task = mysqli_query($conn, $query);
                         while ($row = mysqli_fetch_array($result_task)) { ?>
                                 <div class="i">
@@ -194,36 +245,15 @@ if (!$_SESSION['user'] == "admin") {
                     </tbody>
                 </table>
             </div>
-            <button type="success" class="btn btn-success btn-lg" name="ecxel">Dowload ECXEL</button>
-
         </form>
-
     </div>
 
+    <form action="ecxel.php">
+        <button type="submit" class="btn btn-success btn-lg" name="ecxel">Dowload ECXEL</button>
+    </form>
 </section>
-<br><br><br><br><br><br>
-<script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
-<script src="js/script.js"></script>
-<style>
-a {
-    text-decoration: none;
-}
 
-table {
-    height: 300px;
-}
 
-div.scrollmenu {
-    overflow: auto;
-    white-space: nowrap;
-}
-
-input {
-    max-width: 110px;
-    min-width: 20px;
-    text-align: center;
-}
-</style>
 <?php
    include '../includes/footer.php';
 ?>

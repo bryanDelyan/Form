@@ -1,13 +1,6 @@
-<?php 
+<?php     
+    include("admin/db.php");
     session_start();
-    
-    $conn = mysqli_connect(
-        'localhost',
-        'id18737347_bryan',
-        'gH]5aQv>9xF&fP0)',
-        'id18737347_lista'
-    );
-
     $getnico = "Ninguna";
     $getnico = "No";
     $ocupacion = "Otra";
@@ -114,11 +107,7 @@
 
             <input type="submit" class="btn" name="actualizar" style="color: #58D68D" value="Enviar Formulario">
             <input type="button" class="btn" name="" style="color: #F9E79F;  width: 95%;"
-                value="PROXIMAMENTE -Editar datos del formulario">
-            <div class="box" style="background-color: white;text-align: center; width: 95%;color: black;">
-                <h3>Esta opcion estara habilitada dentro de poco, porfavor tenga paciencia</h1>
-                    <br>
-            </div>
+                
         </form>
       
         <?php
@@ -134,12 +123,12 @@
                 <option value="CE">Cedula de extranjeria</option>
                 <option value="PS">Pasaporte</option>
             </select>
-            <span>Ingrese solo digitos</span>
+            <span>Ingrese solo dígitos</span>
             <input type="number" class="box" maxlength="15"
                 oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                 placeholder="Numero de documento" name="ndocument" required>
 
-            <span>Maximo 10 digitos</span>
+            <span>Máximo 10 digitos</span>
             <input type="number" class="box" maxlength="10"
                 oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                 placeholder="Numero telefonico" name="ntelefonico" required>
@@ -149,13 +138,13 @@
 
 
             <select class="box" id="selector" name="getnicoqs" required onChange="muestraMas();">
-                <option disabled selected>Grupo etnico</option>
+                <option disabled selected>Grupo Étnico</option>
                 <option value="Si">Si</option>
                 <option value="No">No</option>
             </select>
 
             <div class="oculto" id="oculto" style="display: none;">
-                <input type="text" class="box" name="getnico" placeholder="Cual?">
+                <input type="text" class="box" name="getnico" placeholder="¿Cuál?">
             </div>
 
             <select class="box" id="selector2" required onChange="muestraMas2();">
@@ -172,7 +161,7 @@
                 </select>
             </div>
             <div class="input-box oculto" id="oculto2" style="display: none;">
-                <input type="text" class="box" name="empresa" placeholder="Ingrese su ocupacion">
+                <input type="text" class="box" name="empresa" placeholder="Ingrese su ocupación (De que Universidad, Colegio o Empresa viene)">
             </div>
             <div class="oculto" id="oculto3" style="display: none;">
                 <select class="box" id="selector4" name="carrera" required onChange="muestraMas4();">

@@ -1,12 +1,14 @@
-<footer class="footer">
 
+<footer class="footer">
     <section>
-        <div class="credit">&copy; copyright @ 2022 by <span>Fablab</span> | all rights reserved!</div>
+        <div class="credit">&copy; copyright @ 2022 by <span>Technonautas</span> | all rights reserved!</div>
     </section>
 
 </footer>
+
+
 <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
-<script src="js/script.js"></script>
+
 
 </script>
 <!-- JavaScript Bundle with Popper -->

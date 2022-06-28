@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+
+if (isset($_GET['salir'])) {
+   session_destroy();
+}
+
+?>
 <html>
 
 <head>
@@ -10,7 +19,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
-
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <link type="text/css" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/south-street/jquery-ui.css"
         rel="stylesheet">
@@ -19,6 +27,8 @@
     <script type="text/javascript" src="js/jquery.ui.touch-punch.min.js"></script>
     <link type="text/css" href="css/jquery.signature.css" rel="stylesheet">
     <script type="text/javascript" src="js/jquery.signature.js"></script>
+
+    
 </head>
 
 <style>
@@ -54,16 +64,14 @@
             <a href="index.php" class="logo">Fablab <span style="color: var(--green)">QR</span></a>
             <nav class="navbar">
                 <a href="./index.php">home</a>
-                <a href="./form.php">ingresar</a>
-                <a style="color: #E74C3C;">
+                <a href="./form.php">formulario</a>
+                <a href="./admin" style="color: white;">admin</a>
+                <?php  if (isset($_SESSION['usuario'])) { ?>
+                <a href="?salir=1" style="color: #E74C3C;">Logout</a>
+                <?php } ?>
+                </a>
 
-                <?php 
-                if (isset($_SESSION['usuario'])) {
-                    echo $_SESSION['usuario'];
-                }
-                ?></a>
-                
-    
+
             </nav>
             <div id="menu-btn" class="fas fa-bars"></div>
         </section>

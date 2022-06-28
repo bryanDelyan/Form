@@ -1,29 +1,30 @@
 <?php
     session_start();
-        
-    $conn = mysqli_connect(
-        'localhost',
-        'id18737347_bryan',
-        'gH]5aQv>9xF&fP0)',
-        'id18737347_lista'
-    );
-   
+    include("db.php");
+    
+    if (!isset($_SESSION['correo'])) {
+        header("Location: login.php"); 
+    }
     if (isset($_POST['logout'])) {
         session_destroy();
-        header("location: login.php");
+        header("Location: login.php");
+        die();
     }
+    $correo = $_SESSION['correo'];
+    $contra = $_SESSION['contra'];
+    $query = "SELECT * FROM admin WHERE correo = '$correo' and contraseña = '$contra'";
+        if($result= $conn->query($query)){
+            $roow=$result->fetch_array(); 
+            $nr =$result->num_rows; 
+            //Si existe el usuario lo va a redireccionar a la pagina de Bienvenida.
+            if($nr == 1){ 
+            }
+            //Si no existe lo va a enviar al login otra vez.
+            else if($nr <= 0) { 
+                header("Location: login.php"); 
+            }  
+        }
 
-
-    if(isset($_POST["ecxel"]))
-    {
-        header("Pragma: public");
-        header("Expires: 0");
-        $filename = "informe.xls";
-        header("Content-type: application/x-msdownload");
-        header("Content-Disposition: attachment; filename=$filename");
-        header("Pragma: no-cache");
-        header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
-    }
 ?>
 
 <html>
@@ -48,6 +49,7 @@
     <link type="text/css" href="css/jquery.signature.css" rel="stylesheet">
     <script type="text/javascript" src="js/jquery.signature.js"></script>
 
+
 </head>
 
 
@@ -59,10 +61,8 @@
             <a href="" class="logo">Admin mode</a>
             <nav class="navbar">
                 <form method="POST">
-                    <?php if (isset($_SESSION['user'])) {?>
                     <button type="success" class="btn" name="logout"> <a href=""><i
                                 class="uil uil-signout"></i></a></button>
-                    <?php } ?>
                 </form>
 
 
